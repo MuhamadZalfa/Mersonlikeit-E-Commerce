@@ -1,0 +1,1226 @@
+/* ==========================================================
+   MERSONLIKEIT — Stylesheet utama (semua class/ID berawalan zalfa_)
+   ========================================================== */
+:root {
+  --zalfa_ink: #17130f;
+  --zalfa_ivory: #f6f1e9;
+  --zalfa_sand: #e7dccb;
+  --zalfa_gold: #b8975a;
+  --zalfa_gold_dark: #8f723c;
+  --zalfa_muted: #6f675c;
+  --zalfa_serif: 'Cormorant Garamond',Georgia,serif;
+  --zalfa_sans: 'Jost','Helvetica Neue',Arial,sans-serif;
+  --zalfa_ease: cubic-bezier(.22,.61,.36,1);
+  --zalfa_header_h: 88px;
+  --zalfa_gallery_w: 340px;        /* LEBAR galeri foto produk (detail produk) */
+  --zalfa_gallery_ratio: 1 / 1;    /* BENTUK galeri: 1 / 1 = kotak, 4 / 5 = potret, 3 / 4 = potret tinggi */
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ---- BACKGROUND UTAMA PERUSAHAAN (JANGAN DIHAPUS) ----
+   Ganti file assets/background-utama.jpg dengan background asli perusahaan.
+   Lapisan gradien hanya menjaga keterbacaan teks. */
+.zalfa_body {
+  font-family: var(--zalfa_sans);
+  color: var(--zalfa_ink);
+  line-height: 1.7;
+  background: linear-gradient(rgba(246,241,233,.86),rgba(246,241,233,.9)),
+    url("gambar/background.png") center/cover fixed no-repeat,
+    var(--zalfa_ivory);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.zalfa_container {
+  width: min(1180px,92%);
+  margin: 0 auto;
+}
+
+.zalfa_section {
+  padding: 110px 0;
+}
+
+.zalfa_eyebrow {
+  font-size: .72rem;
+  letter-spacing: .35em;
+  text-transform: uppercase;
+  color: var(--zalfa_gold_dark);
+}
+
+.zalfa_title {
+  font-family: var(--zalfa_serif);
+  font-weight: 500;
+  font-size: clamp(2.2rem,4.5vw,3.6rem);
+  line-height: 1.1;
+  margin: 14px 0 18px;
+}
+
+.zalfa_lead {
+  color: var(--zalfa_muted);
+  max-width: 560px;
+}
+
+.zalfa_center {
+  text-align: center;
+}
+
+.zalfa_center .zalfa_lead {
+  margin: 0 auto;
+}
+
+/* ---- Tombol ---- */
+.zalfa_btn {
+  display: inline-block;
+  padding: 15px 38px;
+  border: 1px solid var(--zalfa_ink);
+  background: var(--zalfa_ink);
+  color: var(--zalfa_ivory);
+  font: 500 .78rem var(--zalfa_sans);
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: .4s var(--zalfa_ease);
+}
+
+.zalfa_btn:hover {
+  background: transparent;
+  color: var(--zalfa_ink);
+}
+
+.zalfa_btn_ghost {
+  background: transparent;
+  color: var(--zalfa_ink);
+}
+
+.zalfa_btn_ghost:hover {
+  background: var(--zalfa_ink);
+  color: var(--zalfa_ivory);
+}
+
+.zalfa_btn_gold {
+  background: var(--zalfa_gold);
+  border-color: var(--zalfa_gold);
+  color: #fff;
+}
+
+.zalfa_btn_gold:hover {
+  background: transparent;
+  color: var(--zalfa_gold_dark);
+}
+
+/* ---- Header ---- */
+#zalfa_header {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 100;
+  padding: 20px 0;
+  background: var(--zalfa_ivory);
+  border-bottom: 1px solid rgba(23,19,15,.08);
+  transition: .4s var(--zalfa_ease);
+}
+
+main {
+  padding-top: var(--zalfa_header_h);
+}
+
+#zalfa_header.zalfa_scrolled {
+  padding: 12px 0;
+  box-shadow: 0 8px 30px -18px rgba(23,19,15,.35);
+}
+
+.zalfa_nav_wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.zalfa_logo {
+  font-family: var(--zalfa_serif);
+  font-size: 1.7rem;
+  letter-spacing: .12em;
+  font-weight: 600;
+}
+
+.zalfa_logo span {
+  color: var(--zalfa_gold);
+}
+
+.zalfa_menu {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+  align-items: center;
+}
+
+.zalfa_menu a {
+  font-size: .74rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  position: relative;
+  padding-bottom: 4px;
+}
+
+.zalfa_menu a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 1px;
+  background: var(--zalfa_gold);
+  transition: .4s var(--zalfa_ease);
+}
+
+.zalfa_menu a:hover::after,.zalfa_menu a.zalfa_active::after {
+  width: 100%;
+}
+
+.zalfa_cart_link {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+#zalfa_cart_badge {
+  background: var(--zalfa_gold);
+  color: #fff;
+  border-radius: 50%;
+  min-width: 20px;
+  height: 20px;
+  font-size: .68rem;
+  display: inline-grid;
+  place-items: center;
+  letter-spacing: 0;
+}
+
+#zalfa_burger {
+  display: none;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  width: 30px;
+  height: 20px;
+  position: relative;
+}
+
+#zalfa_burger span {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 1.5px;
+  background: var(--zalfa_ink);
+  transition: .3s;
+}
+
+#zalfa_burger span:nth-child(1) {
+  top: 0;
+}
+
+#zalfa_burger span:nth-child(2) {
+  top: 9px;
+}
+
+#zalfa_burger span:nth-child(3) {
+  top: 18px;
+}
+
+/* ---- Hero ---- */
+#zalfa_hero {
+  min-height: calc(100vh - var(--zalfa_header_h));
+  padding: 40px 0;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+#zalfa_hero::before {
+  content: "";
+  position: absolute;
+  right: -8%;
+  top: 10%;
+  width: 46vw;
+  height: 46vw;
+  max-width: 640px;
+  max-height: 640px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%,#d8c39a,#b8975a 55%,#8f723c);
+  opacity: .22;
+  filter: blur(2px);
+}
+
+.zalfa_hero_grid {
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap: 60px;
+  align-items: center;
+  position: relative;
+}
+
+.zalfa_hero_title {
+  font-family: var(--zalfa_serif);
+  font-size: clamp(2.4rem,7vw,6rem);
+  font-weight: 400;
+  line-height: 1;
+  margin: 18px 0 26px;
+}
+
+.zalfa_hero_title em {
+  font-style: italic;
+  color: var(--zalfa_gold_dark);
+}
+
+.zalfa_hero_actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 34px;
+}
+
+.zalfa_hero_visual {
+  height: min(68vh,540px);
+  aspect-ratio: 3/4;
+  justify-self: center;
+  
+  position: relative;
+  display: grid;
+  place-items: center;
+  outline: 1px solid var(--zalfa_gold);
+  outline-offset: 14px;
+}
+
+.zalfa_hero_visual span {
+  font-family: var(--zalfa_serif);
+  font-size: 1.4rem;
+  letter-spacing: .4em;
+  color: var(--zalfa_gold);
+  writing-mode: vertical-rl;
+}
+
+/* ---- Marquee ---- */
+.zalfa_strip {
+  background: var(--zalfa_ink);
+  color: var(--zalfa_sand);
+  padding: 18px 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.zalfa_strip_track {
+  display: inline-block;
+  animation: zalfa_scroll 28s linear infinite;
+  font-size: .76rem;
+  letter-spacing: .35em;
+  text-transform: uppercase;
+}
+
+.zalfa_strip_track i {
+  color: var(--zalfa_gold);
+  font-style: normal;
+  margin: 0 28px;
+}
+
+@keyframes zalfa_scroll {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* ---- Produk ---- */
+.zalfa_grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill,minmax(250px,1fr));
+  gap: 34px;
+  margin-top: 56px;
+}
+
+.zalfa_product_card {
+  background: #fff;
+  transition: .5s var(--zalfa_ease);
+  display: flex;
+  flex-direction: column;
+}
+
+.zalfa_product_card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 26px 50px -28px rgba(23,19,15,.45);
+}
+
+.zalfa_product_img {
+  aspect-ratio: 3/4;
+  display: grid;
+  place-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.zalfa_product_img b {
+  font-family: var(--zalfa_serif);
+  font-size: 3.2rem;
+  font-weight: 400;
+  color: rgba(255,255,255,.85);
+  transition: .6s var(--zalfa_ease);
+}
+
+.zalfa_product_card:hover .zalfa_product_img b {
+  transform: scale(1.15);
+}
+
+.zalfa_tag {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: var(--zalfa_ivory);
+  font-size: .64rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  padding: 5px 10px;
+}
+
+.zalfa_product_body {
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+
+.zalfa_product_cat {
+  font-size: .68rem;
+  letter-spacing: .25em;
+  text-transform: uppercase;
+  color: var(--zalfa_muted);
+}
+
+.zalfa_product_name {
+  font-family: var(--zalfa_serif);
+  font-size: 1.4rem;
+  line-height: 1.2;
+}
+
+.zalfa_price {
+  color: var(--zalfa_gold_dark);
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.zalfa_product_actions {
+  display: flex;
+  gap: 10px;
+  margin-top: auto;
+}
+
+.zalfa_product_actions .zalfa_btn {
+  padding: 11px 16px;
+  font-size: .68rem;
+  flex: 1;
+  text-align: center;
+}
+
+.zalfa_filter_bar {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 34px;
+}
+
+.zalfa_filter_btn {
+  background: none;
+  border: 1px solid rgba(23,19,15,.25);
+  padding: 9px 22px;
+  font: .72rem var(--zalfa_sans);
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.zalfa_filter_btn.zalfa_active,.zalfa_filter_btn:hover {
+  background: var(--zalfa_ink);
+  color: var(--zalfa_ivory);
+  border-color: var(--zalfa_ink);
+}
+
+/* ---- Split / kartu ---- */
+.zalfa_split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 70px;
+  align-items: center;
+}
+
+.zalfa_panel {
+  aspect-ratio: 4/5;
+  background: linear-gradient(145deg,#e7dccb,#c9b48a);
+  display: grid;
+  place-items: center;
+  outline: 1px solid var(--zalfa_gold);
+  outline-offset: -16px;
+}
+
+.zalfa_panel span {
+  font-family: var(--zalfa_serif);
+  font-size: 2rem;
+  letter-spacing: .3em;
+  color: var(--zalfa_ink);
+}
+
+.zalfa_cards3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
+  gap: 30px;
+  margin-top: 50px;
+}
+
+.zalfa_card {
+  background: rgba(255,255,255,.8);
+  padding: 38px 32px;
+  border-top: 2px solid var(--zalfa_gold);
+}
+
+.zalfa_card h3 {
+  font-family: var(--zalfa_serif);
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.zalfa_card p {
+  color: var(--zalfa_muted);
+  font-size: .95rem;
+}
+
+.zalfa_quote {
+  font-family: var(--zalfa_serif);
+  font-size: 1.35rem;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+.zalfa_quote_by {
+  margin-top: 16px;
+  font-size: .72rem;
+  letter-spacing: .25em;
+  text-transform: uppercase;
+  color: var(--zalfa_gold_dark);
+}
+
+/* ---- Page header ---- */
+.zalfa_page_head {
+  padding: 70px 0 50px;
+  text-align: center;
+}
+
+/* ---- Detail produk ---- */
+.zalfa_detail {
+  display: grid;
+  grid-template-columns: minmax(0, var(--zalfa_gallery_w)) 1fr;
+  gap: 70px;
+  align-items: start;
+}
+
+.zalfa_gallery_main {
+  aspect-ratio: var(--zalfa_gallery_ratio);
+  display: grid;
+  place-items: center;
+  font-family: var(--zalfa_serif);
+  font-size: 6rem;
+  color: rgba(255,255,255,.85);
+}
+
+.zalfa_thumbs {
+  display: flex;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.zalfa_thumb {
+  flex: 1;
+  aspect-ratio: 1;
+  border: 1px solid transparent;
+  cursor: pointer;
+  opacity: .6;
+  transition: .3s;
+}
+
+.zalfa_thumb.zalfa_active,.zalfa_thumb:hover {
+  opacity: 1;
+  border-color: var(--zalfa_ink);
+}
+
+.zalfa_size_row {
+  display: flex;
+  gap: 10px;
+  margin: 14px 0 26px;
+}
+
+.zalfa_size {
+  width: 48px;
+  height: 48px;
+  border: 1px solid rgba(23,19,15,.3);
+  background: none;
+  cursor: pointer;
+  font: .8rem var(--zalfa_sans);
+  transition: .3s;
+}
+
+.zalfa_size.zalfa_active,.zalfa_size:hover {
+  background: var(--zalfa_ink);
+  color: var(--zalfa_ivory);
+}
+
+/* ---- Keranjang ---- */
+.zalfa_cart_layout {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 50px;
+  align-items: start;
+}
+
+.zalfa_cart_item {
+  display: grid;
+  grid-template-columns: 84px 1fr auto;
+  gap: 20px;
+  align-items: center;
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(23,19,15,.12);
+}
+
+.zalfa_cart_thumb {
+  aspect-ratio: 3/4;
+}
+
+.zalfa_qty {
+  display: inline-flex;
+  border: 1px solid rgba(23,19,15,.3);
+  margin-top: 8px;
+}
+
+.zalfa_qty button {
+  width: 32px;
+  height: 32px;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.zalfa_qty span {
+  width: 34px;
+  display: grid;
+  place-items: center;
+  font-size: .9rem;
+}
+
+.zalfa_remove {
+  background: none;
+  border: 0;
+  color: var(--zalfa_muted);
+  cursor: pointer;
+  font-size: .75rem;
+  text-decoration: underline;
+  margin-top: 6px;
+}
+
+.zalfa_summary {
+  background: #fff;
+  padding: 34px;
+  position: sticky;
+  top: 100px;
+}
+
+.zalfa_summary h3 {
+  font-family: var(--zalfa_serif);
+  font-size: 1.6rem;
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+
+.zalfa_row {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  font-size: .95rem;
+}
+
+.zalfa_row_total {
+  border-top: 1px solid var(--zalfa_ink);
+  margin-top: 10px;
+  padding-top: 16px;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+/* ---- Form ---- */
+.zalfa_form {
+  display: grid;
+  gap: 22px;
+}
+
+.zalfa_field label {
+  display: block;
+  font-size: .7rem;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  color: var(--zalfa_muted);
+}
+
+.zalfa_field input,.zalfa_field textarea,.zalfa_field select {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid rgba(23,19,15,.25);
+  background: rgba(255,255,255,.85);
+  font: 1rem var(--zalfa_sans);
+  transition: .3s;
+}
+
+.zalfa_field input:focus,.zalfa_field textarea:focus,.zalfa_field select:focus {
+  outline: none;
+  border-color: var(--zalfa_gold);
+}
+
+.zalfa_field textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.zalfa_error {
+  color: #a33;
+  font-size: .78rem;
+  min-height: 1em;
+  margin-top: 4px;
+}
+
+.zalfa_contact_grid {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 70px;
+}
+
+.zalfa_info_list {
+  list-style: none;
+  display: grid;
+  gap: 22px;
+  margin-top: 30px;
+}
+
+.zalfa_info_list strong {
+  display: block;
+  font-size: .7rem;
+  letter-spacing: .25em;
+  text-transform: uppercase;
+  color: var(--zalfa_gold_dark);
+}
+
+/* ---- Blog ---- */
+.zalfa_blog_card {
+  background: #fff;
+}
+
+.zalfa_blog_card .zalfa_blog_img {
+  aspect-ratio: 16/10;
+  background: linear-gradient(135deg,#2a231b,#6b5530);
+}
+
+.zalfa_blog_card div.zalfa_blog_body {
+  padding: 26px;
+}
+
+.zalfa_blog_card h3 {
+  font-family: var(--zalfa_serif);
+  font-size: 1.45rem;
+  font-weight: 500;
+  margin: 8px 0;
+}
+
+/* ---- Footer ---- */
+#zalfa_footer {
+  background: var(--zalfa_ink);
+  color: var(--zalfa_sand);
+  padding: 80px 0 30px;
+  margin-top: 40px;
+}
+
+.zalfa_footer_grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1.3fr;
+  gap: 44px;
+}
+
+#zalfa_footer h4 {
+  font-size: .72rem;
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  color: var(--zalfa_gold);
+  margin-bottom: 18px;
+  font-weight: 500;
+}
+
+#zalfa_footer li {
+  list-style: none;
+  margin-bottom: 10px;
+  font-size: .92rem;
+}
+
+#zalfa_footer a:hover {
+  color: var(--zalfa_gold);
+}
+
+.zalfa_news {
+  display: flex;
+  margin-top: 10px;
+}
+
+.zalfa_news input {
+  flex: 1;
+  padding: 12px;
+  background: transparent;
+  border: 1px solid rgba(231,220,203,.35);
+  color: #fff;
+  font: .9rem var(--zalfa_sans);
+  min-width: 0;
+}
+
+.zalfa_news button {
+  padding: 0 18px;
+  background: var(--zalfa_gold);
+  border: 0;
+  color: #fff;
+  cursor: pointer;
+}
+
+.zalfa_copy {
+  border-top: 1px solid rgba(231,220,203,.15);
+  margin-top: 50px;
+  padding-top: 24px;
+  font-size: .78rem;
+  text-align: center;
+  opacity: .7;
+}
+
+/* ---- Toast & animasi ---- */
+#zalfa_toast {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translate(-50%,30px);
+  background: var(--zalfa_ink);
+  color: var(--zalfa_ivory);
+  padding: 14px 28px;
+  font-size: .85rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: .4s var(--zalfa_ease);
+  z-index: 200;
+  border-left: 3px solid var(--zalfa_gold);
+}
+
+#zalfa_toast.zalfa_show {
+  opacity: 1;
+  transform: translate(-50%,0);
+}
+
+.zalfa_reveal {
+  opacity: 0;
+  transform: translateY(34px);
+  transition: 1s var(--zalfa_ease);
+}
+
+.zalfa_reveal.zalfa_visible {
+  opacity: 1;
+  transform: none;
+}
+
+.zalfa_empty {
+  text-align: center;
+  padding: 60px 0;
+  color: var(--zalfa_muted);
+}
+
+/* ---- Utilitas ---- */
+.zalfa_section_flush {
+  padding-top: 0;
+}
+
+.zalfa_section_top {
+  padding-top: 50px;
+}
+
+.zalfa_btn_spaced {
+  margin-top: 56px;
+}
+
+.zalfa_lead_spaced {
+  margin-top: 16px;
+  margin-bottom: 28px;
+}
+
+.zalfa_quote_wide {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.zalfa_footer_note {
+  margin-top: 14px;
+  font-size: .92rem;
+  opacity: .8;
+}
+
+.zalfa_form_spaced {
+  margin-top: 26px;
+}
+
+.zalfa_textarea_short {
+  min-height: 90px!important;
+}
+
+.zalfa_title_sm {
+  font-size: 2.2rem;
+}
+
+.zalfa_title_blog {
+  margin: 100px 0 0;
+}
+
+.zalfa_blog_card p {
+  color: var(--zalfa_muted);
+  font-size: .92rem;
+}
+
+/* ---- Responsif ---- */
+@media (max-width:900px) {
+  .zalfa_section {
+    padding: 76px 0;
+  }
+  #zalfa_burger {
+    display: block;
+  }
+    .zalfa_menu {
+    position: fixed;
+    inset: 0 0 0 30%;
+    background: var(--zalfa_ivory);
+    flex-direction: column;
+    justify-content: center;
+    gap: 30px;
+    transform: translateX(100%);
+    visibility: hidden;
+    pointer-events: none;
+    transition: transform .5s var(--zalfa_ease), visibility .5s;
+    box-shadow: -20px 0 50px rgba(0,0,0,.15);
+  }
+  .zalfa_menu.zalfa_open {
+    transform: none;
+    visibility: visible;
+    pointer-events: auto;
+  }
+  .zalfa_hero_grid,.zalfa_split,.zalfa_detail,.zalfa_cart_layout,.zalfa_contact_grid {
+    grid-template-columns: 1fr;
+    gap: 44px;
+  }
+    .zalfa_hero_visual {
+    width: min(86%, 380px);
+    height: auto;
+    aspect-ratio: 3/4;
+    outline-offset: 8px;
+  }
+  .zalfa_footer_grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .zalfa_summary {
+    position: static;
+  }
+}
+
+@media (max-width:520px) {
+  .zalfa_footer_grid {
+    grid-template-columns: 1fr;
+  }
+  .zalfa_cart_item {
+    grid-template-columns: 64px 1fr;
+  }
+  .zalfa_cart_item>:last-child {
+    grid-column: 2;
+  }
+}
+
+/* ---- Foto produk (etalase, detail, keranjang) ---- */
+.zalfa_gallery_main,
+.zalfa_cart_thumb,
+.zalfa_thumb {
+  position: relative;
+  overflow: hidden;
+}
+.zalfa_product_img img,
+.zalfa_gallery_main img,
+.zalfa_cart_thumb img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.zalfa_product_img img {
+  transition: transform .8s var(--zalfa_ease);
+}
+.zalfa_product_card:hover .zalfa_product_img img {
+  transform: scale(1.06);
+}
+.zalfa_thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.zalfa_tag {
+  z-index: 2;
+}
+
+/* ---- Ukuran galeri produk ---- */
+.zalfa_gallery {
+  width: 100%;
+  max-width: var(--zalfa_gallery_w);
+}
+
+/* ---- Slider foto di halaman detail (bisa digeser) ---- */
+.zalfa_slider {
+  position: relative;
+  aspect-ratio: var(--zalfa_gallery_ratio);
+  overflow: hidden;
+}
+.zalfa_slides {
+  display: flex;
+  height: 100%;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  overscroll-behavior-x: contain;
+  cursor: grab;
+}
+.zalfa_slides::-webkit-scrollbar {
+  display: none;
+}
+.zalfa_slides.zalfa_dragging {
+  scroll-snap-type: none;
+  cursor: grabbing;
+}
+.zalfa_slide {
+  flex: 0 0 100%;
+  height: 100%;
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+}
+.zalfa_slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+  user-select: none;
+}
+.zalfa_slider_btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(246, 241, 233, .9);
+  color: var(--zalfa_ink);
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+  opacity: .85;
+  transition: .3s var(--zalfa_ease);
+}
+.zalfa_slider_btn:hover {
+  background: var(--zalfa_ink);
+  color: var(--zalfa_ivory);
+  opacity: 1;
+}
+.zalfa_slider_prev {
+  left: 14px;
+}
+.zalfa_slider_next {
+  right: 14px;
+}
+.zalfa_slider_count {
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+  padding: 4px 12px;
+  background: rgba(23, 19, 15, .7);
+  color: var(--zalfa_ivory);
+  font-size: .72rem;
+  letter-spacing: .15em;
+}
+.zalfa_thumb.zalfa_active {
+  opacity: 1;
+}
+
+/* ---- Foto bagian halaman (Our Story, Hero) ---- */
+.zalfa_panel {
+  position: relative;
+  overflow: hidden;
+}
+.zalfa_panel img,
+.zalfa_hero_visual img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ---- Kartu Jurnal Fashion (link) ---- */
+a.zalfa_blog_card {
+  display: block;
+  color: inherit;
+  transition: opacity 1s var(--zalfa_ease), transform .5s var(--zalfa_ease), box-shadow .5s var(--zalfa_ease);
+}
+a.zalfa_blog_card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 26px 50px -28px rgba(23, 19, 15, .45);
+}
+.zalfa_blog_img {
+  position: relative;
+  overflow: hidden;
+}
+.zalfa_blog_img img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.zalfa_blog_more {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: .7rem;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--zalfa_gold_dark);
+}
+
+/* ---- Thumbnail galeri (ukuran tetap) ---- */
+.zalfa_thumbs .zalfa_thumb {
+  flex: 0 0 72px;
+}
+
+
+/* ---- Etalase: foto kedua muncul saat kursor didekatkan ---- */
+.zalfa_product_img img {
+  transition: transform .9s var(--zalfa_ease), opacity .8s ease-in-out;
+}
+.zalfa_product_img .zalfa_img_alt {
+  opacity: 0;
+  z-index: 1;
+}
+@media (hover: hover) {
+  .zalfa_product_card:hover .zalfa_product_img .zalfa_img_alt {
+    opacity: 1;
+  }
+}
+.zalfa_form .zalfa_btn:disabled {
+  opacity: .6;
+  cursor: not-allowed;
+}
+
+/* =========================================================
+   TAMPILAN ETALASE MOBILE ALA SHOPEE (KHUSUS HP / ANDROID)
+   ========================================================= */
+@media screen and (max-width: 768px) {
+  
+  /* 1. Mengubah grid wadah produk utama (#zalfa_catalog_grid) jadi 2 kolom rapat */
+  #zalfa_catalog_grid.zalfa_grid, 
+  .zalfa_grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8px !important;
+    padding: 0 8px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* 2. Mengatur kartu item produk di dalam grid agar ringkas */
+  #zalfa_catalog_grid > div, 
+  .zalfa_grid > div {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 6px !important;
+    background: #fff;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+  }
+
+  /* 3. Memaksa gambar produk berbentuk persegi (1:1) agar rapi */
+  #zalfa_catalog_grid img, 
+  .zalfa_grid img {
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 1 / 1 !important;
+    object-fit: cover !important;
+    border-radius: 4px;
+    margin-bottom: 6px !important;
+  }
+
+  /* 4. Menyesuaikan ukuran teks judul produk */
+  #zalfa_catalog_grid h3, 
+  #zalfa_catalog_grid .zalfa_product_title,
+  .zalfa_grid h3 {
+    font-size: 12px !important;
+    line-height: 1.25 !important;
+    margin: 4px 0 !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important; /* Batasi maksimal 2 baris teks */
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+  }
+
+  /* 5. Menyesuaikan ukuran teks harga */
+  #zalfa_catalog_grid .zalfa_price, 
+  #zalfa_catalog_grid p,
+  .zalfa_grid .zalfa_price {
+    font-size: 13px !important;
+    font-weight: bold !important;
+    margin-bottom: 6px !important;
+  }
+
+  /* 6. Menyesuaikan ukuran tombol aksi/beli di dalam kartu */
+  #zalfa_catalog_grid button, 
+  #zalfa_catalog_grid a.zalfa_btn,
+  .zalfa_grid button {
+    font-size: 11px !important;
+    padding: 5px 4px !important;
+    width: 100% !important;
+    border-radius: 4px !important;
+    text-align: center;
+  }
+}
