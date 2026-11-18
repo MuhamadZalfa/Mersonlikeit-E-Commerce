@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Keranjang — mersonlikeit</title>
+    <meta name="description" content="mersonlikeit — fashion premium dengan sentuhan elegan.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="zalfa_body" data-zalfa-page="keranjang">
+    <header id="zalfa_header">
+        <div class="zalfa_container zalfa_nav_wrap">
+            <a href="index.html" class="zalfa_logo">MERSON<span>LIKEIT</span></a>
+            <nav>
+                <ul class="zalfa_menu" id="zalfa_menu">
+                    <li><a href="index.html" class="">Beranda</a></li>
+                    <li><a href="tentang.html" class="">Tentang</a></li>
+                    <li><a href="katalog.html" class="">Koleksi</a></li>
+                    <li><a href="testimoni.html" class="">Testimoni & Blog</a></li>
+                    <li><a href="kontak.html" class="">Kontak</a></li>
+                    <li><a href="keranjang.html" class="zalfa_cart_link zalfa_active">Keranjang <span id="zalfa_cart_badge">0</span></a></li>
+                </ul>
+            </nav>
+            <button id="zalfa_burger" aria-label="Menu"><span></span><span></span><span></span></button>
+        </div>
+    </header>
+
+    <main>
+        <section class="zalfa_page_head">
+            <div class="zalfa_container">
+                <span class="zalfa_eyebrow">Keranjang & Checkout</span>
+                <h1 class="zalfa_title">Keranjang Belanja</h1>
+                <p class="zalfa_lead" style="margin:0 auto"></p>
+            </div>
+        </section>
+        <section class="zalfa_section" style="padding-top:0">
+            <div class="zalfa_container zalfa_cart_layout">
+                <div id="zalfa_cart_list"></div>
+                <aside class="zalfa_summary" id="zalfa_cart_summary">
+                    <h3>Ringkasan &amp; Checkout</h3>
+                    <div class="zalfa_row">
+                        <span>Subtotal</span>
+                        <span id="zalfa_sub"></span>
+                    </div>
+                    <div class="zalfa_row">
+                        <span>Ongkir</span>
+                        <span id="zalfa_ongkir"></span>
+                    </div>
+                    <div class="zalfa_row zalfa_row_total">
+                        <span>Total</span>
+                        <span id="zalfa_total"></span>
+                    </div>
+                    <br>
+                    <form class="zalfa_form" id="zalfa_checkout_form">
+                        <div class="zalfa_field">
+                            <label>Nama Penerima</label>
+                            <input required>
+                        </div>
+                        <div class="zalfa_field">
+                            <label>Alamat Lengkap</label>
+                            <textarea style="min-height:90px" required></textarea>
+                        </div>
+                        <div class="zalfa_field">
+                            <label>Pembayaran</label>
+                            <select>
+                                <option>Transfer Bank</option>
+                                <option>E-Wallet</option>
+                                <option>COD</option>
+                            </select>
+                        </div>
+                        <button class="zalfa_btn" type="submit">Selesaikan Pesanan</button>
+                    </form>
+                </aside>
+            </div>
+        </section>
+    </main>
+
+    <footer id="zalfa_footer">
+        <div class="zalfa_container">
+            <div class="zalfa_footer_grid">
+                <div>
+                    <a href="index.html" class="zalfa_logo">MERSON<span>LIKEIT</span></a>
+                    <p style="margin-top:14px;font-size:.92rem;opacity:.8">Fashion premium untuk pribadi yang berani tampil berkelas.</p>
+                </div>
+                <div>
+                    <h4>Jelajahi</h4>
+                    <ul>
+                        <li><a href="index.html">Beranda</a></li>
+                        <li><a href="tentang.html">Tentang Kami</a></li>
+                        <li><a href="katalog.html">Koleksi</a></li>
+                        <li><a href="testimoni.html">Testimoni &amp; Blog</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Bantuan</h4>
+                    <ul>
+                        <li><a href="keranjang.html">Keranjang</a></li>
+                        <li><a href="kontak.html">Kontak</a></li>
+                        <li><a href="detail.html?id=1">Produk Unggulan</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Newsletter</h4>
+                    <p style="font-size:.88rem;opacity:.8">Dapatkan kabar koleksi terbaru.</p>
+                    <form class="zalfa_news" id="zalfa_news_form">
+                        <input type="email" placeholder="Email Anda" required>
+                        <button type="submit">→</button>
+                    </form>
+                </div>
+            </div>
+            <p class="zalfa_copy">© 2026 mersonlikeit. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <div id="zalfa_toast" role="status"></div>
+    <script src="data-produk.js"></script>
+    <script src="data-situs.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
